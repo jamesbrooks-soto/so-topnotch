@@ -1,0 +1,31 @@
+ul.sidebar_product_menu {
+  list-style: none;
+  margin:0px;
+  padding:0px;
+  border-top: 1px solid #ccc;
+
+  li {
+    a {
+      padding: 15px 12px;
+      display: block;
+      border-bottom: 1px solid #ccc;
+      h3 {
+        font-size:16px;
+        margin:0px;
+      }
+      p {
+        color: #666;
+        margin-bottom:0px;
+      }
+      &:hover {
+        background: #ccc;
+        text-decoration: none;
+      }
+    }
+    &:last-child {
+      a {
+        border-bottom:0px;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.section-grid-content {
+
+    .row {
+      display: grid;
+      grid-gap: 0 4%;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      padding: 0 15px;
+
+      h3 {
+        margin-top: 15px;
+      }
+
+      img {
+        margin-bottom: 15px;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+    }
+}
+@media (min-width: 768px) {
+    .section-grid-content {
+      .row {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          grid-gap: 0 4%;
+      }
+  }
+}

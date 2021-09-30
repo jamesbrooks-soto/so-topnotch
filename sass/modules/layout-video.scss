@@ -1,0 +1,9 @@
+.section-video {
+  .video-wrap {
+    @include video-wrap;
+
+    iframe {
+      @include video-iframe;
+    }
+  }
+}

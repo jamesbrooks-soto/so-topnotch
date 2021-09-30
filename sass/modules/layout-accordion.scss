@@ -1,0 +1,36 @@
+.section-accordion {
+  details {
+    border: 1px solid #e5e5e5;
+    border-radius: 0;
+    background-color: #fff;
+    margin-bottom: 20px;
+
+    summary {
+      padding-right: 45px !important;
+      background-image: url('../img/arrow-down.png');
+      background-position: 98% 50%;
+      background-repeat: no-repeat;
+      background-color: #F6F6F6;
+      padding-right: 45px !important;
+      display: block;
+      padding: 8px 15px;
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #D0011B !important;
+    }
+
+    .accordion-contents {
+        border-bottom: 1px solid #e5e5e5;
+        padding: 25px 15px 0;
+
+        .video-wrap {
+          @include video-wrap;
+
+          iframe {
+            @include video-iframe;
+          }
+        }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+// Use this file to overwrite the basic Bootstrap variables and add your own variables
+// To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder.
+// Just copy a variable from src/sass/bootstrap4/_variables.scss, paste it here and edit the value.
+
+
+$primary: #ff6b13 ; // Thats a sample how you could change a BootStrap variable.
+
+$white:	#fff;
+$black:	#000;
+$grey: #e8e8e8;
+$lightGrey: rgb(234, 234, 238);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1160px
+) !default;
+
+$color-list: (white, $white), (black, $black), (lightGrey, $lightGrey) , (grey, $grey);
+
+@each $bkgcolor, $color in $color-list {
+    .bkg-#{$bkgcolor} {
+        background-color: $color;
+    }
+}
+
+@each $fontcolor, $color in $color-list {
+    .#{$fontcolor} {
+        color: $color;
+    }
+}

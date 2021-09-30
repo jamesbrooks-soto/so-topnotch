@@ -1,0 +1,23 @@
+.sidebar_contact_menu {
+  list-style: none;
+  margin:0px;
+  padding:0px;
+  border-top:1px solid #ccc;
+
+  li {
+        padding: 7px 12px;
+        border-bottom:1px solid #ccc;
+    a {
+  color:rgb(85, 85, 85);
+  &:hover {
+    color:#000;
+  }
+    }
+    span {
+      font-weight:700;
+      color:rgb(85, 85, 85);
+      width:100px;
+      display: inline-block;
+    }
+  }
+}

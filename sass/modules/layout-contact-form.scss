@@ -1,0 +1,55 @@
+.section-contact-form {
+  h1 {
+    font-size: 23.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .gform_body {
+    li {
+      margin-top: 0 !important;
+    }
+
+    input,
+    textarea {
+      width: 100% !important;
+      background-color: rgba(255, 255, 255, 0.8) !important;
+      height: 30px;
+      color: #666;
+      padding: 0 5px !important;
+      font-weight: normal;
+      font-size: 14px !important;
+      border: 1px solid #cccccc;
+      &[type="checkbox"] {
+        width:auto !important;
+        margin-top: 0px !important;
+      }
+    }
+
+    .gfield_label {
+      display: none !important;
+    }
+  }
+
+  .gform_legacy_markup_wrapper .top_label div.ginput_container {
+    margin-top: 0;
+  }
+
+  input.gform_button {
+	background: #666;
+	font-size: 14px !important;
+	font-family: 'Lato', courier, serif !important;
+	border: none;
+	margin-left: 0;
+	float: left !important;
+	padding: 5px 10px;
+	color: #fff;
+	text-transform: uppercase;
+  &:hover {
+    background:#000;
+  }
+}
+
+.gform_legacy_markup_wrapper .gfield_checkbox li, .gform_legacy_markup_wrapper .gfield_radio li {
+  margin-bottom:0px !important;
+}
+}

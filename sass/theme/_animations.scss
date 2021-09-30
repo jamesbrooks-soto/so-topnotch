@@ -1,0 +1,122 @@
+/*ANIMATIONS*/
+	/*desktop only and above 1024px resolution*/
+	@media (min-width: 1078px) {
+
+		@keyframes dropMenuShow{
+			0%   {
+				opacity: 0;
+				transform:translateY(10px);
+			}
+			100%   {
+				opacity: 1;
+				transform:translateY(0px);
+			}
+		}
+
+		@-webkit-keyframes dropMenuShow{
+			0%   {
+				opacity: 0;
+				-webkit-transform:translateY(10px);
+			}
+			100%   {
+				opacity: 1;
+				-webkit-transform:translateY(0px);
+			}
+		}
+
+		@-moz-keyframes dropMenuShow{
+			0%   {
+				opacity: 0;
+				-moz-transform:translateY(10px);
+			}
+			100%   {
+				opacity: 1;
+				-moz-transform:translateY(0px);
+			}
+		}
+
+		/*submenu show/hide animation*/
+		/*submenu normal*/
+	    .desktop .dropdown-menu > li.dropdown:hover > .sub-menu{
+	    	-webkit-animation: subMenuShow 0.3s ease;
+			-moz-animation: subMenuShow 0.3s ease;
+			animation: subMenuShow 0.3s ease;
+	    }
+
+
+		@keyframes subMenuShow{
+			0%   {
+				opacity: 0;
+				transform:translateX(10px);
+			}
+			100%   {
+				opacity: 1;
+				transform:translateX(0px);
+			}
+		}
+
+		@-webkit-keyframes subMenuShow{
+			0%   {
+				opacity: 0;
+				-webkit-transform:translateX(10px);
+			}
+			100%   {
+				opacity: 1;
+				-webkit-transform:translateX(0px);
+			}
+		}
+
+		@-moz-keyframes subMenuShow{
+			0%   {
+				opacity: 0;
+				-moz-transform:translateX(10px);
+			}
+			100%   {
+				opacity: 1;
+				-moz-transform:translateX(0px);
+			}
+		}
+
+		/*submenu right align*/
+		.desktop .dropdown-menu.rightAlign > li.dropdown:hover .sub-menu,
+		.desktop .dropdown-menu > li.dropdown:hover .sub-menu.rightAlign{
+			-webkit-animation: subMenuShowRight 0.3s ease;
+			-moz-animation: subMenuShowRight 0.3s ease;
+			animation: subMenuShowRight 0.3s ease;
+		}
+
+
+		@keyframes subMenuShowRight{
+			0%   {
+				opacity: 0;
+				transform:translateX(-10px);
+			}
+			100%   {
+				opacity: 1;
+				transform:translateX(0px);
+			}
+		}
+
+		@-webkit-keyframes subMenuShowRight{
+			0%   {
+				opacity: 0;
+				-webkit-transform:translateX(-10px);
+			}
+			100%   {
+				opacity: 1;
+				-webkit-transform:translateX(0px);
+			}
+		}
+
+		@-moz-keyframes subMenuShowRight{
+			0%   {
+				opacity: 0;
+				-moz-transform:translateX(-10px);
+			}
+			100%   {
+				opacity: 1;
+				-moz-transform:translateX(0px);
+			}
+		}
+	}
+	/*end animations*/
