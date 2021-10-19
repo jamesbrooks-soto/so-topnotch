@@ -4,7 +4,9 @@ $rowNumb = count(get_sub_field('grid_content_repeater'));
 $cellClose = '</div>';
 $imageClasses = 'align-items-center cell-image';
 $titleClasses = 'align-items-start cell-title';
+$buttonClasses = 'align-items-start cell-title';
 $textClasses = 'align-items-start flex-column cell-text';
+
  ?>
 <section class="<?php echo get_section_class(); ?> py-3 d-none d-md-block">
   <div class="container">
@@ -70,7 +72,9 @@ $textClasses = 'align-items-start flex-column cell-text';
         echo cellWrapClasses($imageClasses);
         if($firstRowImg){
 
-          if ($firstRowLink): ?><a href="<?php echo esc_url( $firstRowLink ); ?>"><?php endif; ?>
+          if ($firstRowLink):
+          $link_url = $firstRowLink['url']; ?>
+          <a href="<?php echo esc_url( $link_url ); ?>"><?php endif; ?>
           <img src="<?php echo esc_url($firstRowImg['url']); ?>" alt="<?php echo esc_attr($firstRowImg['alt']); ?>" /><?php
           if ($firstRowLink): echo '</a>'; endif;
 
@@ -81,7 +85,9 @@ $textClasses = 'align-items-start flex-column cell-text';
         echo cellWrapClasses($imageClasses);
         if($secondRowImg){
 
-          if ($secondRowLink): ?><a href="<?php echo esc_url( $secondRowLink ); ?>"><?php endif; ?>
+          if ($secondRowLink):
+          $link_url = $secondRowLink['url']; ?>
+          <a href="<?php echo esc_url( $link_url ); ?>"><?php endif; ?>
           <img src="<?php echo esc_url($secondRowImg['url']); ?>" alt="<?php echo esc_attr($secondRowImg['alt']); ?>" /><?php
           if ($secondRowLink): echo '</a>'; endif;
 
@@ -92,7 +98,9 @@ $textClasses = 'align-items-start flex-column cell-text';
         echo cellWrapClasses($imageClasses);
         if($thirdRowImg){
 
-          if ($thirdRowLink): ?><a href="<?php echo esc_url( $thirdRowLink ); ?>"><?php endif; ?>
+          if ($thirdRowLink):
+          $link_url = $thirdRowLink['url']; ?>
+          <a href="<?php echo esc_url( $link_url ); ?>"><?php endif; ?>
           <img src="<?php echo esc_url($thirdRowImg['url']); ?>" alt="<?php echo esc_attr($thirdRowImg['alt']); ?>" /><?php
           if ($thirdRowLink): echo '</a>'; endif;
 
@@ -108,7 +116,9 @@ $textClasses = 'align-items-start flex-column cell-text';
         echo cellWrapClasses($titleClasses);
         if($firstRowTitle){
 
-          if ($firstRowLink):?><a href="<?php echo esc_url( $firstRowLink ); ?>"><?php endif;
+          if ($firstRowLink):
+          $link_url = $firstRowLink['url']; ?>
+          <a href="<?php echo esc_url( $link_url ); ?>"><?php endif;
               echo '<h3>' . $firstRowTitle . '</h3>';
           if ($firstRowLink): echo '</a>'; endif;
 
@@ -119,8 +129,10 @@ $textClasses = 'align-items-start flex-column cell-text';
         echo cellWrapClasses($titleClasses);
         if($secondRowTitle){
 
-          if ($secondRowLink):?><a href="<?php echo esc_url( $secondRowLink ); ?>"><?php endif;
-              echo '<h3>' . $secondRowTitle . '</h3>';
+          if ($secondRowLink):
+            $link_url = $secondRowLink['url']; ?>
+            <a href="<?php echo esc_url( $link_url ); ?>"><?php endif;
+            echo '<h3>' . $secondRowTitle . '</h3>';
           if ($secondRowLink): echo '</a>'; endif;
 
         }
@@ -130,7 +142,9 @@ $textClasses = 'align-items-start flex-column cell-text';
         echo cellWrapClasses($titleClasses);
         if($thirdRowTitle){
 
-          if ($thirdRowLink):?><a href="<?php echo esc_url( $thirdRowLink ); ?>"><?php endif;
+          if ($thirdRowLink):
+            $link_url = $thirdRowLink['url']; ?>
+            <a href="<?php echo esc_url( $link_url ); ?>"><?php endif;
               echo '<h3>' . $thirdRowTitle . '</h3>';
           if ($thirdRowLink): echo '</a>'; endif;
 
@@ -141,7 +155,7 @@ $textClasses = 'align-items-start flex-column cell-text';
       endif;
       // End titles
 
-      // Checking if any text  exist, if so cellWrap needs to execute all three times regardless of if the cell is populated
+      // Checking if any text exists, if so cellWrap needs to execute all three times regardless of if the cell is populated
       if (($firstRowText) or ($secondRowText) or ($thirdRowText)) :
 
         echo cellWrapClasses($textClasses);
@@ -165,7 +179,57 @@ $textClasses = 'align-items-start flex-column cell-text';
         echo $cellClose;
 
       endif;
-      // End titles
+      // End text
+
+      // Checking if any buttons exist, if so cellWrap needs to execute all three times regardless of if the cell is populated
+      if(get_sub_field('grid_content_enable_buttons')):
+        if (($firstRowLink) or ($secondRowLink) or ($thirdRowLink)) :
+
+          echo cellWrapClasses($buttonClasses);
+
+          if( $firstRowLink ):
+              $link_url = $firstRowLink['url'];
+              $link_title = $firstRowLink['title'];
+              $link_target = $firstRowLink['target'] ? $firstRowLink['target'] : '_self';
+              ?>
+
+              <a class="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+          <?php endif;
+
+          echo $cellClose;
+
+
+          echo cellWrapClasses($buttonClasses);
+
+          if( $secondRowLink ):
+              $link_url = $secondRowLink['url'];
+              $link_title = $secondRowLink['title'];
+              $link_target = $secondRowLink['target'] ? $secondRowLink['target'] : '_self';
+              ?>
+
+              <a class="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+          <?php endif;
+
+          echo $cellClose;
+
+
+          echo cellWrapClasses($buttonClasses);
+
+          if( $thirdRowLink ):
+              $link_url = $thirdRowLink['url'];
+              $link_title = $thirdRowLink['title'];
+              $link_target = $thirdRowLink['target'] ? $thirdRowLink['target'] : '_self';
+              ?>
+
+              <a class="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+          <?php endif;
+
+          echo $cellClose;
+
+
+        endif;
+      endif;
+      // End buttons
 
       $currentLoop++;
 
@@ -224,13 +288,15 @@ $textClasses = 'align-items-start flex-column cell-text';
       endif;
 
 
-      // Checking if any images exist, if so cellWrap needs to execute all three times regardless of if the cell is populated
+      // Checking if any images exist, if so cellWrap needs to execute all twice regardless of if the cell is populated
       if (($firstRowImg) or ($secondRowImg)):
 
         echo cellWrapClasses($imageClasses);
         if($firstRowImg){
 
-          if ($firstRowLink): ?><a href="<?php echo esc_url( $firstRowLink ); ?>"><?php endif; ?>
+          if ($firstRowLink):
+          $link_url = $firstRowLink['url']; ?>
+          <a href="<?php echo esc_url( $link_url ); ?>"><?php endif; ?>
           <img src="<?php echo esc_url($firstRowImg['url']); ?>" alt="<?php echo esc_attr($firstRowImg['alt']); ?>" /><?php
           if ($firstRowLink): echo '</a>'; endif;
 
@@ -241,24 +307,27 @@ $textClasses = 'align-items-start flex-column cell-text';
         echo cellWrapClasses($imageClasses);
         if($secondRowImg){
 
-          if ($secondRowLink): ?><a href="<?php echo esc_url( $secondRowLink ); ?>"><?php endif; ?>
+          if ($secondRowLink):
+          $link_url = $secondRowLink['url']; ?>
+          <a href="<?php echo esc_url( $link_url ); ?>"><?php endif; ?>
           <img src="<?php echo esc_url($secondRowImg['url']); ?>" alt="<?php echo esc_attr($secondRowImg['alt']); ?>" /><?php
           if ($secondRowLink): echo '</a>'; endif;
 
         }
         echo $cellClose;
 
-
       endif;
       // End Images
 
-      // Checking if any titles exist, if so cellWrap needs to execute all three times regardless of if the cell is populated
+      // Checking if any titles exist, if so cellWrap needs to execute all twice regardless of if the cell is populated
       if (($firstRowTitle) or ($secondRowTitle)) :
 
         echo cellWrapClasses($titleClasses);
         if($firstRowTitle){
 
-          if ($firstRowLink):?><a href="<?php echo esc_url( $firstRowLink ); ?>"><?php endif;
+          if ($firstRowLink):
+          $link_url = $firstRowLink['url']; ?>
+          <a href="<?php echo esc_url( $link_url ); ?>"><?php endif;
               echo '<h3>' . $firstRowTitle . '</h3>';
           if ($firstRowLink): echo '</a>'; endif;
 
@@ -269,8 +338,10 @@ $textClasses = 'align-items-start flex-column cell-text';
         echo cellWrapClasses($titleClasses);
         if($secondRowTitle){
 
-          if ($secondRowLink):?><a href="<?php echo esc_url( $secondRowLink ); ?>"><?php endif;
-              echo '<h3>' . $secondRowTitle . '</h3>';
+          if ($secondRowLink):
+            $link_url = $secondRowLink['url']; ?>
+            <a href="<?php echo esc_url( $link_url ); ?>"><?php endif;
+            echo '<h3>' . $secondRowTitle . '</h3>';
           if ($secondRowLink): echo '</a>'; endif;
 
         }
@@ -278,7 +349,7 @@ $textClasses = 'align-items-start flex-column cell-text';
 
       endif;
 
-      // Checking if any text  exist, if so cellWrap needs to execute all three times regardless of if the cell is populated
+      // Checking if any text  exist, if so cellWrap needs to execute all twice regardless of if the cell is populated
       if (($firstRowText) or ($secondRowText)) :
 
         echo cellWrapClasses($textClasses);
@@ -296,6 +367,41 @@ $textClasses = 'align-items-start flex-column cell-text';
 
       endif;
       // End titles
+
+      // Checking if any buttons exist, if so cellWrap needs to execute all twice regardless of if the cell is populated
+      if(get_sub_field('grid_content_enable_buttons')):
+        if (($firstRowLink) or ($secondRowLink)):
+
+          echo cellWrapClasses($buttonClasses);
+
+          if( $firstRowLink ):
+              $link_url = $firstRowLink['url'];
+              $link_title = $firstRowLink['title'];
+              $link_target = $firstRowLink['target'] ? $firstRowLink['target'] : '_self';
+              ?>
+
+              <a class="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+          <?php endif;
+
+          echo $cellClose;
+
+
+          echo cellWrapClasses($buttonClasses);
+
+          if( $secondRowLink ):
+              $link_url = $secondRowLink['url'];
+              $link_title = $secondRowLink['title'];
+              $link_target = $secondRowLink['target'] ? $secondRowLink['target'] : '_self';
+              ?>
+
+              <a class="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+          <?php endif;
+
+          echo $cellClose;
+
+        endif;
+      endif;
+      // End buttons
 
       $currentLoop++;
 
