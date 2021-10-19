@@ -1,4 +1,4 @@
-<?php if ((get_field('enable_page_title') == 'true') { ?>
+<?php if (get_field('enable_page_title') == 'true') { ?>
 <section id="page-title" class="pb-5">
 <?php
   if (get_field('enable_page_title') == 'true') { ?>
